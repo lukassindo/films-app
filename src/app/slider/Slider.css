@@ -1,0 +1,26 @@
+
+.slide {
+    max-width: 113px;
+}
+.slick-slide > div {
+    text-align: center;
+}
+.slider_container .slick-arrow {
+    z-index: 1;
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease-in;
+}
+.slider_container .slick-prev, .slick-prev:hover, .slick-prev:focus  {
+    left: 2rem;
+    background: url('../../img/left.png') no-repeat center !important;
+}
+.slider_container .slick-next, .slick-next:hover, .slick-next:focus  {
+    right: 2rem;
+    background: url('../../img/right.png') no-repeat center !important;
+}
+.slick-next:before, .slick-prev:before {
+    content:'' !important;
+    background: rgb(0 0 0 / 24%);
+}
+
