@@ -15,11 +15,8 @@ interface Props {
 const SliderComponent = ({getMovie, films}:Props) => {
     const SLIDES = Math.floor(window.innerWidth / 140)
     const [movies, setMovies] = useState<Movie[]>([])
-    console.log(SLIDES)
-    console.log(movies)
+ 
     const settings = {
-        // centerMode: true,
-        // centerPadding: '60px',
         infinite: true,
         slidesToShow: SLIDES,
         speed: 500
@@ -27,7 +24,6 @@ const SliderComponent = ({getMovie, films}:Props) => {
 
     useEffect(()=> {
         if(films.length > 0 && films.length < SLIDES) {
-            console.log('less')
             let additionalMovies: Movie[] = films;
             let y = 0;
             for(let i = films.length; i <= SLIDES; i++) {
