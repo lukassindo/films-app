@@ -11,29 +11,34 @@ const Main = () => {
     const CATEGORIES = ['Action & Adventure','Kids & Family','Comedy','Drama','Sci-Fi & Fantasy','Documentary','Western','Romance','Musicals','Horror'];
     const [films, setFilms] = useState<Movies>([]);
     const [pickedCategory, setPickedCategory] = useState<string>('');
-    const [pickedMovie, setPickedMovie] = useState<Movie>({title: '', summary: '', image: '', category: ''})
+    const [pickedMovie, setPickedMovie] = useState<Movie>({title: '', summary: '', image: '', category: ''});
+    const [searchPhrase, setPhrase]  = useState<string>('');
    
     useEffect(()=> {
         const getData =  async () => {
-            const data = await getFilms(pickedCategory);
+            const data = await getFilms(pickedCategory, searchPhrase);
             setFilms(data);
         } 
         getData();
-    },[pickedCategory]);
+    },[pickedCategory, searchPhrase]);
 
     const getCategory = (category:string) => {
-        setPickedCategory(category)
+        setPickedCategory(category);
+    }
+
+    const getSearch = (phrase:string) => {
+        setPhrase(phrase);
     }
 
     const getPickedMovie = (movie:Movie) => {
-        setPickedMovie(movie)
+        setPickedMovie(movie);
     }
 
     return (
         <>
-        <Header categories={CATEGORIES} getCategory={getCategory}/> 
-            {(films.length > 0) && <BigMovie  picked={pickedMovie} film={films[0]}/>}
-            {(films) && <SliderComponent getMovie={getPickedMovie} films = {films}/>}
+        <Header categories={CATEGORIES} getCategory={getCategory} getSearch={getSearch}/> 
+        {(films.length > 0) && <BigMovie  picked={pickedMovie} film={films[0]}/>}
+        {(films) && <SliderComponent getMovie={getPickedMovie} films = {films}/>}
         <Footer/>
         </>
     )

@@ -22,7 +22,7 @@ const BigMovie = ({picked, film}:Props) => {
         setPickedFilm(picked)
     },[picked]);
 
-    useMemo(()=>{
+    useEffect(()=>{
         setPickedFilm(film)
     },[film])
 
