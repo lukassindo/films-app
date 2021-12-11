@@ -1,18 +1,14 @@
-
 :root {
   --netflix: #D52415;
+  -dark: #4B4B4D;
 }
-
 @font-face {
   font-family: 'Limelight';
   src:  url('fonts/Limelight-Regular.ttf') format('ttf')
 }
-
 .font-link {
   font-family: 'Limelight', cursive;
 }
-
-
 body {
   margin: 0;
   padding: 0;
@@ -21,4 +17,16 @@ body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
 }
-
+body a:hover {
+  color: var(--netflix);
+}
+.form-select:focus, .buttons button:focus, #search .form-control:focus {
+  border-color: #D52415 !important;
+  box-shadow: 0 0 0 0.25rem rgb(213 36 21 / 21%) !important;
+}
+.slide {cursor: pointer;}
+.genre, h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+}

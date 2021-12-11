@@ -1,12 +1,39 @@
 .bigMovie {
     min-height: 57vh;
-    max-width: 50%;
+    max-width: 100%;
     color: #fff;
     padding: 3rem 0;
 }
 .bigMovie h1 {
     color: var(--netflix);
-    font-size: 4rem;
-    line-height: 64px;
+    font-size: 2rem;
     font-family: 'Limelight', cursive;
+    line-height: 39px;
+}
+.buttons button {
+    width: 185px;
+    border-radius: 20px;
+    margin: 0 2rem 1rem 0;
+    background-position: 20px !important;
+    background-size: 10px !important;
+    border: none;
+    transition: box-shadow 0.3s ease-in;
+}
+.buttons button:hover {
+    box-shadow: 0 0 0 0.25rem rgb(213 36 21 / 21%) !important;
+}
+.watch {
+    background: #fff url('../../img/play.png') no-repeat !important;;
+    color: #000 !important;
+}
+.add {
+    background: #4B4B4D url('../../img/plus.png') no-repeat !important;;
+    color: #fff !important;
+}
+@media screen and (min-width: 1000px) {
+    .bigMovie {max-width: 50%;}
+    .bigMovie h1 {
+        font-size: 4rem;
+        line-height: 64px;
+    }
 }

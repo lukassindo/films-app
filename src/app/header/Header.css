@@ -5,22 +5,16 @@
 .nav {
     padding-left: 8%;
 }
-.genre {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #fff;
-}
 select.form-select {
     display: inline-block;
     width: 225px;
-    margin-left: 1rem;
     background: transparent url('../../img/arrow_down.png') no-repeat !important;
     color: #fff;
     border-radius: 20px;
     background-position: 200px !important;
     background-size: 16px 12px !important;
+    cursor: pointer;
 }
-
 .form-select option {
     color: #fff;
     background-color: #000;
@@ -34,6 +28,7 @@ select.form-select {
     border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
+    max-height: 2.2rem;
 }
 #search .btn {
     position: absolute;
@@ -44,5 +39,29 @@ select.form-select {
 #search .btn:hover {
     color: #fff;
     background-color: transparent;
-    
+}
+
+element.style {
+}
+#search .btn {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    border: none;
+}
+#search .btn img {
+    height: 16px;
+    position: relative;
+    bottom: 1px;
+}
+button:focus:not(:focus-visible) {
+    outline: 0;
+}
+.btn-check:focus+.btn-outline-secondary, .btn-outline-secondary:focus {
+    box-shadow: none !important;
+}
+@media screen and (min-width: 344px) {
+    select.form-select {
+        margin-left: 1rem;
+    }
 }

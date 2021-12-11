@@ -1,4 +1,3 @@
-
 type Image = {
   attributes: {
     height: string
@@ -7,18 +6,18 @@ type Image = {
 }
 
 type MovieFetch = {
- title: {
-   label: string
- },
- summary: {
-   label: string
- },
- ["im:image"]:Image[],
- category: {
-   attributes: {
-     label: string
-   }
- }
+  ["im:name"]: {
+    label: string;
+  },
+  summary: {
+    label: string
+  },
+  ["im:image"]:Image[],
+  category: {
+      attributes: {
+        label: string
+      }
+  }
 }
 
 type Movie = {
@@ -27,6 +26,7 @@ type Movie = {
   image: string,
   category: string
 }
+
 type Movies = Movie[]
 
 export type {MovieFetch, Movies, Movie, Image}

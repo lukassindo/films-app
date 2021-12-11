@@ -1,0 +1,36 @@
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem 0;
+    justify-content: center;
+}
+.favorites div {
+    position: relative;
+    margin: 0 2rem 2rem;
+}
+.favorites img {
+    filter: none;
+    transition: filter 0.3s ease-in;
+}
+.favorites span {
+    position: absolute;
+    color: var(--netflix);
+    top: 3rem;
+    left: 6px;
+    max-width: 100px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    font-size: 1.4rem;
+    line-height: 24px;
+    text-shadow: 2px 2px 2px #e8e8e8;
+    cursor: pointer;
+}
+.favorites div:hover span{
+    opacity: 1
+}
+.favorites div:hover img {
+    filter: grayscale(100%);
+}

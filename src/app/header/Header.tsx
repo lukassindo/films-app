@@ -10,7 +10,6 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import lupe from '../../img/lupe.png';
-import InputGroup from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 interface Props {
@@ -32,9 +31,9 @@ const Header = ({categories, getCategory, getSearch}:Props) => {
     return (
         <Container>
             <Row>
-                <Col className="py-4 d-flex justify-content-between">
+                <Col className="py-4 d-flex justify-content-between flex-wrap">
                     <div className="d-flex">
-                        <div className="logo">
+                        <div className="logo mb-2">
                             <Image src={logo}/>
                         </div>
                         <Nav>
@@ -43,12 +42,10 @@ const Header = ({categories, getCategory, getSearch}:Props) => {
                         </Nav>
                     </div>
                     <Form id="search" className="d-flex">
-                    
-                            <Form.Control type="text" onChange={setPhrase} placeholder="Search" />
-                            <Button type="submit" variant="outline-secondary" className="btn">
-                               <Image src={lupe}/> 
-                            </Button>
-                        
+                        <Form.Control type="text" onChange={setPhrase} placeholder="Search" />
+                        <Button type="submit" onClick={(e)=>e.preventDefault()} variant="outline-secondary" className="btn">
+                            <Image src={lupe}/> 
+                        </Button>
                     </Form>
                 </Col>
             </Row>

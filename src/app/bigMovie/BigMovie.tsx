@@ -1,9 +1,10 @@
-import React, {useState, useEffect, useRef, useMemo} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../../App.css';
 import './BigMovie.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import { Movie } from '../../models/models';
 
 interface Props {
@@ -12,28 +13,34 @@ interface Props {
 }
 
 const BigMovie = ({picked, film}:Props) => {
-    const [selected, setSelected] = useState<boolean>(false);
     const [pickedFilm, setPickedFilm] = useState<Movie>(film);
-    const filmRef = useRef<Movie>();
-
-
-    console.log(film)
+   
     useEffect(()=> { 
         setPickedFilm(picked)
     },[picked]);
 
     useEffect(()=>{
         setPickedFilm(film)
-    },[film])
+    },[film]);
+
+    const addFavorite = (favorite: string) => {
+        localStorage.setItem(favorite,favorite);
+    }
 
     const showMovie = (
         <div className="bigMovie">
             <h1 className="font-link">{pickedFilm.title}</h1>
             <p>{pickedFilm.summary}</p>
+            <div className="buttons">
+                <Button className="watch" onClick={(e)=>e.preventDefault()}>
+                    WATCH
+                </Button>
+                <Button onClick={()=>addFavorite(pickedFilm.title)}className="add">
+                    ADD LIST
+                </Button>
+            </div>
         </div>
     )
-
-  
 
     return (
         <Container>
@@ -42,7 +49,6 @@ const BigMovie = ({picked, film}:Props) => {
                 {(pickedFilm && showMovie)}
                 </Col>
             </Row>
-       
         </Container>
     )
 }
