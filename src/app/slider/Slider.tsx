@@ -1,52 +1,55 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {FC, useEffect, useMemo, useState } from 'react';
 import '../../App.css';
 import './Slider.css'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import { getFilms } from '../../services/films';
-import { Movies } from '../../models/models';
+import { Movie } from '../../models/models';
 import Slider from "react-slick";
 
-const SliderComponent = () => {
+interface Props {
+    getMovie: (movie:Movie) => void,
+    films: Movie[]
+}
+
+const SliderComponent = ({getMovie, films}:Props) => {
     const SLIDES = Math.floor(window.innerWidth / 140)
-    const [films, setFilms] = useState<Movies>([]);
-    console.log(SLIDES)
+    const [movies, setMovies] = useState<Movie[]>([])
 
     const settings = {
         centerMode: true,
         centerPadding: '60px',
         infinite: true,
         slidesToShow: SLIDES,
-        responsive: [
-            {
-              breakpoint: 480,
-              settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '20px',
-                slidesToShow: 2
-              }
-            }
-          ]
-      };
+    };
 
     useEffect(()=> {
-        const getData =  async () => {
-            const data = await getFilms();
-            console.log(data);
-            setFilms(data)
-        } 
-        getData();
-    },[]);
-
-    console.log(films)
+        if(films.length > 0 && films.length < SLIDES) {
+            console.log('less')
+            let additionalMovies: Movie[] = films
+            let y = 0
+            for(let i = films.length; i <= SLIDES; i++) {
+                if(y < films.length) {
+                    additionalMovies.push(films[y]);
+                    y++
+                } else {
+                    y = 0;
+                    additionalMovies.push(films[y]);
+                }
+                
+            }
+            setMovies(additionalMovies);
+        }
+        setMovies(films)
+    },[films]);
+    
+    const pickedMovie = (movie:Movie) => {
+        getMovie(movie)
+    }
+   
     return (
         <div className="slider_container">
             <Slider {...settings} className="movie-slider">
-                {films.map((movie, index)=> (
-                    <Image key={movie.title} className="slide" src={movie.image}/>
+                {(movies) && movies.map(movie=> (
+                    <Image onClick={(e) => pickedMovie(movie)} key={movie.title} className="slide" src={movie.image}/>
                 ))}
             </Slider> 
         </div>

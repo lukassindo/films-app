@@ -1,4 +1,7 @@
 
+.slider_container {
+    padding-bottom: 3rem;
+}
 .slide {
     max-width: 113px;
 }

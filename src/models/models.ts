@@ -27,7 +27,6 @@ type Movie = {
   image: string,
   category: string
 }
-// type Movies = string[][];
 type Movies = Movie[]
 
 export type {MovieFetch, Movies, Movie, Image}

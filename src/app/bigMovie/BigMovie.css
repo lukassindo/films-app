@@ -1,0 +1,12 @@
+.bigMovie {
+    min-height: 57vh;
+    max-width: 50%;
+    color: #fff;
+    padding: 3rem 0;
+}
+.bigMovie h1 {
+    color: var(--netflix);
+    font-size: 4rem;
+    line-height: 64px;
+    font-family: 'Limelight', cursive;
+}

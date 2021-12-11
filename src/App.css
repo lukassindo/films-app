@@ -1,3 +1,18 @@
+
+:root {
+  --netflix: #D52415;
+}
+
+@font-face {
+  font-family: 'Limelight';
+  src:  url('fonts/Limelight-Regular.ttf') format('ttf')
+}
+
+.font-link {
+  font-family: 'Limelight', cursive;
+}
+
+
 body {
   margin: 0;
   padding: 0;

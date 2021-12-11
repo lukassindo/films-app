@@ -7,10 +7,20 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import logo from '../../img/logo.png';
 import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
+interface Props {
+    categories: string[];
+    getCategory: (category:string) => void;
+}
 
-const Header = () => {
+const Header = ({categories, getCategory}:Props) => {
+
+    const sendData = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        getCategory(e.target.value);
+    }
+
     return (
         <Container>
             <Row>
@@ -25,8 +35,16 @@ const Header = () => {
                 </Col>
             </Row>
             <Row>
+                <Col>
+                    <span className='genre'>Movies</span>
+                    <Form.Select aria-label="Pick category of film" onChange={e=>sendData(e)}>
+                        <option>Film Genre</option>
+                        {categories.map(category=> (
+                                <option key={category}>{category}</option>
+                        ))}
+                    </Form.Select>
+                </Col>
             </Row>
-            
         </Container>
     )
 }

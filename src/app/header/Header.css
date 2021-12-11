@@ -5,3 +5,22 @@
 .nav {
     padding-left: 8%;
 }
+.genre {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+}
+select.form-select {
+    display: inline-block;
+    width: 225px;
+    margin-left: 1rem;
+    background: transparent url('../../img/arrow_down.png') no-repeat !important;
+    color: #fff;
+    border-radius: 20px;
+    background-position: 200px !important;
+    background-size: 16px 12px !important;
+}
+.form-select option {
+    color: #fff;
+    background-color: #000;
+}
